@@ -2,6 +2,11 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[export]{adjustbox}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
 
 \title{Assignment 2, Replication and extension of Muchlinksi et al. (2016)\\Random forest vs logitic regression}
 \date{October 15, 2020}
@@ -15,7 +20,7 @@
 
 \newpage
 \begin{figure}[H]
-     \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{Figures/figure1.pdf}}%
+     \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{Figures/figure1.pdf}}%
     \caption{Separation plot for all classifiers.}
 \end{figure}
 
@@ -24,11 +29,44 @@
     \caption{ROC curves for all classifiers.}
 \end{figure}
 
-\begin{figure}[H]
-  \makebox[\textwidth][c]{\includegraphics[width=1.4\textwidth]{}%
-  \caption{ROC curves for all classifiers.}
-\end{figure}
+\begin{table}[H]
+\centering
+\caption{Predicted probability of civil war onset: Logistic Regression and Random Forests}
+\resizebox{\linewidth}{!}{
+    \begin{tabular}{lccccc}
+    \toprule
+    \multicolumn{6}{c}{Models and predicted probability of civil war onset} \\
+    \cmidrule(l{3pt}r{3pt}){1-6}
+Country & Year & Fearon and Latin (2003) & Collier and Hoeffler (2004) & Hegre and Sambanis (2006) & Random Forest\\
+    \midrule
+    \rowcolor{gray!6}  Afghanistan & 2001 & 0.01 & 0.00 & 0.00 & 0.06\\
+Angola & 2001 & 0.01 & 0.01 & 0.02 & 0.71\\
+    \rowcolor{gray!6}  Burundi & 2001 & 0.03 & 0.00 & 0.02 & 0.09\\
+Guinea & 2001 & 0.01 & 0.00 & 0.01 & 0.07\\
+    \rowcolor{gray!6}  Rwanda & 2001 & 0.01 & 0.00 & 0.01 & 0.05\\
+\addlinespace
+Uganda & 2002 & 0.02 & 0.02 & 0.02 & 0.93\\
+    \rowcolor{gray!6}  Liberia & 2003 & 0.02 & 0.04 & 0.03 & 0.98\\
+Iraq & 2004 & 0.03 & 0.01 & 0.03 & 0.16\\
+    \rowcolor{gray!6}  Uganda & 2004 & 0.01 & 0.00 & 0.01 & 0.45\\
+Afghanistan & 2005 & 0.03 & 0.00 & 0.02 & 0.14\\
+    \addlinespace
+    \rowcolor{gray!6}  Chad & 2006 & 0.02 & 0.04 & 0.03 & 0.98\\
+Somalia & 2007 & 0.06 & 0.04 & 0.10 & 0.96\\
+    \rowcolor{gray!6}  Rwanda & 2009 & 0.02 & 0.04 & 0.03 & 0.99\\
+Libya & 2011 & 0.02 & 0.04 & 0.02 & 0.95\\
+    \rowcolor{gray!6}  Syria & 2012 & 0.01 & 0.00 & 0.00 & \vphantom{1} 0.06\\
+    \addlinespace
+Syria & 2012 & 0.01 & 0.00 & 0.00 & 0.06\\
+    \rowcolor{gray!6}  Democratic Republic of the Congo & 2013 & 0.01 & 0.00 & 0.00 & 0.04\\
+Iraq & 2013 & 0.02 & 0.04 & 0.02 & 0.96\\
+    \rowcolor{gray!6}  Nigeria & 2013 & 0.02 & 0.04 & 0.03 & 0.96\\
+Somalia & 2014 & 0.05 & 0.04 & 0.11 & 0.99\\
+    \bottomrule
+\end{tabular}}
+\end{table}
 
 \section*{Part 2- Extension}
 
+\newpage
 \end{document}
