@@ -1,0 +1,34 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+Onset_table <- read.csv("predict_onset_table.csv")
+Country_codes <- read.csv("COW_country_codes.csv")
+```
+
+```{r table_generation, echo=FALSE}
+# Subset table
+Onset_table_1thru19<-head(Onset_table, n=19)
+
+# Merge country codes w onset table
+Onset_table_1thru19 <- left_join(Onset_table_1thru19, Country_codes, by = c("COWcode" = "CCode"))
+
+## Clean table
+Onset_table_1thru19 <- Onset_table_1thru19[, c(10, 3, 5:8)]
+names(Onset_table_1thru19) <- c("Country", "Year", "Fearon and Latin (2003)", 
+                                "Collier and Hoeffler (2004)", "Hegre and Sambanis (2006)","Random Forest")
+# Sort
+Onset_table_1thru19<-Onset_table_1thru19[order(Onset_table_1thru19$Year, Onset_table_1thru19$Country),] %>% 
+  tibble()
+
+### Write to kable
+kable(Onset_table_1thru19, digits = 2, align = "lccccc", booktabs = T) %>% 
+  kable_styling(latex_options =c("striped", "scale_down")) %>% 
+  add_header_above(c("Models and predicted probability of civil war onset" = 6))
+```
+

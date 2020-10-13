@@ -1,0 +1,30 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+
+setwd("Data") 
+Onset_table <- read.csv("predict_onset_table.csv")
+Country_codes <- read.csv("COW_country_codes.csv")
+```
+
+```{r table_generation, echo=FALSE}
+# Subset table
+Onset_table_1thru19<-head(Onset_table, n=19)
+
+# Merge country codes w onset table
+Onset_table_1thru19 <- left_join(Onset_table_1thru19, Country_codes, by = c("COWcode" = "CCode"))
+
+## Clean table
+Onset_table_1thru19 <- Onset_table_1thru19[, c(9, 2, 4:7)]
+names(Onset_table_1thru19)[c(1,2)] <- c("Country", "Year")
+# Sort
+Onset_table_1thru19<-Onset_table_1thru19[order(Onset_table_1thru19$Year, Onset_table_1thru19$Country),]
+
+### Write to kable
+kable(Onset_table_1thru19)
+```
+
