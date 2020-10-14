@@ -11,3 +11,5 @@ Muchlinksi et al 2016 Replication and Extension
 [2019 Replication Data](http://www.davidmuchlinski.com/political-analysis-replication-files/)
 
 [Correlates of War Project](https://correlatesofwar.org/)
+
+[Uppsala Conflict Data Program](https://ucdp.uu.se/exploratory)

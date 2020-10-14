@@ -250,3 +250,7 @@ Onset_table<-predictions[order(-predictions$CW_Onset, predictions$year),]
 #### Write file of predictions
 
 write.csv(Onset_table, "predict_onset_table.csv")
+
+### Write file of imputed full_data
+
+write.csv(rf.imp, "data_full_imp.csv")
