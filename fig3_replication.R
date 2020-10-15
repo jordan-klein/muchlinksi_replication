@@ -138,6 +138,9 @@ levels(Output.grouped$Method)[levels(Output.grouped$Method)=="3"] <- "RF"
 ggplot(Output.grouped, aes(x=Training_set, y=mean_F1)) + 
   facet_grid(.~Method) +
   geom_errorbar(aes(ymin=mean_F1-sd_F1, ymax=mean_F1+sd_F1), width=.1) + 
-  geom_line() + 
-  geom_point() + 
-  labs(y="F1-score", x="Ratio of the Training Set")
+  geom_line(aes(linetype=Method)) + 
+  geom_point(aes(shape=Method)) + 
+  labs(y="F1-score", x="Ratio of the Training Set") + 
+  theme(axis.title=element_text(size=14), 
+        strip.text.x = element_text(size = 16), 
+        legend.position = "none")
