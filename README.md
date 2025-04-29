@@ -1,4 +1,4 @@
-# muchlinksi_replication
+# Muchlinksi replication
 COS 597E Assignment 2 Project
 
 Muchlinksi et al 2016 Replication and Extension
